@@ -9,8 +9,12 @@ public class ArgumentParser
         this.expectedArgumentsList.Add(argument);
     }
     
-    public void ParseService(string[] args)
+    public bool CheckPath(string args)
     {
-        
+            if (Directory.Exists(args))
+            {
+                return true;
+            }
+            return false;
     }
 }
