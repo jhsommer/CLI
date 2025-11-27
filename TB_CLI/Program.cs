@@ -6,22 +6,48 @@ class Program
         ExpectedArguments pathArguments = new ExpectedArguments
         {
             Name = "path",
-            Alias = "p",
+            Alias = "p"
+        };
+
+        ExpectedArguments scanArgument = new ExpectedArguments
+        {
+            Name = "scan",
+            Alias = "scn"
+        };
+
+        ExpectedArguments filterArgument = new ExpectedArguments
+        {
+            Name = "filter",
+            Alias = "f"
+        };
+
+        ExpectedArguments showListArgument = new ExpectedArguments
+        {
+            Name = "showList",
+            Alias = "shl"
+        };
+
+        ExpectedArguments moveArgument = new ExpectedArguments
+        {
+            Name = "move",
+            Alias = "mv"
+        };
+
+        ExpectedArguments deleteArgument = new ExpectedArguments
+        {
+            Name = "delete",
+            Alias = "d"
         };
 
         ArgumentParser argumentParser = new ArgumentParser();
-        Actions possibleActions = new Actions();
         
-        Console.WriteLine("Hi! I am here to help you reorganize your directories and either delete them or move them.");
-        Console.WriteLine("What directory would you like to reorganize? Please give me the path to it.");
-
-        string? argument = Console.ReadLine();
-        if (argumentParser.CheckPath(argument))
-        {
-            possibleActions.ScanFiles(argument);
-            possibleActions.FilterService();
-            
-            //Console.WriteLine("This path exists on your disk. What would you like to do?");
-        }
+        argumentParser.AddExpectedArguments(pathArguments);
+        argumentParser.AddExpectedArguments(scanArgument);
+        argumentParser.AddExpectedArguments(filterArgument);
+        argumentParser.AddExpectedArguments(showListArgument);
+        argumentParser.AddExpectedArguments(moveArgument);
+        
+        
+        argumentParser.Parse(args);
     }
 }

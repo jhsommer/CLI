@@ -1,5 +1,3 @@
-using Microsoft.Win32.SafeHandles;
-
 namespace TB_CLI;
 
 public class Actions
@@ -14,7 +12,6 @@ public class Actions
     public void ScanFiles(string path)
     {
         files = Directory.GetFiles(path);
-        
     }
     
     public void FilterService()
