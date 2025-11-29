@@ -1,18 +1,13 @@
-namespace TB_CLI;
+namespace TB_CLI.Actions;
 
-public class Actions
+public class Filter
 {
+    
     private DateTime now = DateTime.Now;
     private TimeSpan age;
     private int weeks = 15;
     
-    private string[] files = [];
-    
     private List<string> filteredFiles = new ();
-    public void ScanFiles(string path)
-    {
-        files = Directory.GetFiles(path);
-    }
     
     public void FilterService()
     {
@@ -41,24 +36,5 @@ public class Actions
         }
 #endif
         
-    }
-
-    public void MoveAction(string newPath)
-    {
-        if (!Directory.Exists(newPath))
-            return;
-        
-        foreach (string file in filteredFiles)
-        {
-            File.Move(file, newPath);
-        }
-    }
-
-    public void DeleteAction()
-    {
-        foreach (string file in filteredFiles)
-        {
-          File.Delete(file);  
-        }
     }
 }

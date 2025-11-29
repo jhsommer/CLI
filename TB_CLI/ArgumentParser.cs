@@ -12,7 +12,6 @@ public class ArgumentParser
     public void AddExpectedArguments(ExpectedArguments argument)
     {
         this._expectedArgumentsList.Add(argument);
-        File.
     }
 
     public void Parse(string[] args)
