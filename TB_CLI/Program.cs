@@ -3,6 +3,12 @@ class Program
 {
     static void Main(string[] args)
     {
+        ExpectedArguments helpArguments = new ExpectedArguments
+        {
+            Name = "help",
+            Alias = "h",
+        };
+        
         ExpectedArguments pathArguments = new ExpectedArguments
         {
             Name = "path",
@@ -41,12 +47,12 @@ class Program
 
         ArgumentParser argumentParser = new ArgumentParser();
         
+        argumentParser.AddExpectedArguments(helpArguments);
         argumentParser.AddExpectedArguments(pathArguments);
         argumentParser.AddExpectedArguments(scanArgument);
         argumentParser.AddExpectedArguments(filterArgument);
         argumentParser.AddExpectedArguments(showListArgument);
         argumentParser.AddExpectedArguments(moveArgument);
-        
         
         argumentParser.Parse(args);
     }

@@ -6,10 +6,13 @@ public class ArgumentParser
     private List<ExpectedArguments> _expectedArgumentsList = [];
 
     private const string HelpFile = "help.txt";
+    
+    
 
     public void AddExpectedArguments(ExpectedArguments argument)
     {
         this._expectedArgumentsList.Add(argument);
+        File.
     }
 
     public void Parse(string[] args)
@@ -42,6 +45,12 @@ public class ArgumentParser
                     {
                         GetFollowingPath(expectedArgument, args, i);
                     }
+
+                    if (potentialAlias == "h")
+                    {
+                        string helpText = File.ReadAllText(HelpFile);
+                        Console.WriteLine(helpText);
+                    }
                     
                     
                     
@@ -57,8 +66,12 @@ public class ArgumentParser
                     {
                         GetFollowingPath(expectedArgument, args, i);
                     }
-                    
-                    
+
+                    if (potentialFullName == "help")
+                    {
+                        string helpText = File.ReadAllText(HelpFile);
+                        Console.WriteLine(helpText);
+                    }
                     
                 }
             }
