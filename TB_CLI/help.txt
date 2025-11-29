@@ -4,9 +4,11 @@ Bax -  Dierectory Utility
 Usage: bax <command> [expression]
 
 Commands:
-path <path>		Searches the path leading to a valid directory
+
+help            Outputs this helper text
+path <path>		Searches the path leading to a valid directory, in which you want to work
 scan			Scans the directory you are currently in
-filter <weeks>		Filters the files in the directory
+filter <weeks>	Filters the files in the directory
 showList		Shows the list of filtered Files
 move <path>		Moves all the files in the list to a new directory
 delete			Deletes all files in the filtered list
