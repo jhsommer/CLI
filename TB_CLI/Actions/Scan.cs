@@ -10,6 +10,6 @@ public class Scan
 
         File.WriteAllLines("unfilteredFiles.txt", files);
         
-        Console.WriteLine("Saved scan to" + Path.GetFullPath("unfilteredFiles.txt"));
+        Console.WriteLine("Saved scan to " + Path.GetFullPath("unfilteredFiles.txt"));
     }
 }
