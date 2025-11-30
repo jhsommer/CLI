@@ -18,7 +18,7 @@ class Program
         ExpectedArguments scanArgument = new ExpectedArguments
         {
             Name = "scan",
-            Alias = "scn"
+            Alias = "s"
         };
 
         ExpectedArguments filterArgument = new ExpectedArguments
@@ -30,13 +30,13 @@ class Program
         ExpectedArguments showListArgument = new ExpectedArguments
         {
             Name = "showList",
-            Alias = "shl"
+            Alias = "sl"
         };
 
         ExpectedArguments moveArgument = new ExpectedArguments
         {
             Name = "move",
-            Alias = "mv"
+            Alias = "m"
         };
 
         ExpectedArguments deleteArgument = new ExpectedArguments
@@ -53,6 +53,7 @@ class Program
         argumentParser.AddExpectedArguments(filterArgument);
         argumentParser.AddExpectedArguments(showListArgument);
         argumentParser.AddExpectedArguments(moveArgument);
+        argumentParser.AddExpectedArguments(deleteArgument);
         
         argumentParser.Parse(args);
     }
