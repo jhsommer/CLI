@@ -6,5 +6,5 @@ public class ExpectedArguments
     
     public required string Alias { init ;get;}
 
-    public string Value;
+    public string? Value;
 }
