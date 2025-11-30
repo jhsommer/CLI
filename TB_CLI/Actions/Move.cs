@@ -9,7 +9,7 @@ public class Move
             return new List<string>();
         }
         
-        return File.ReadAllLines("lists.txt").ToList();  
+        return File.ReadAllLines(content).ToList();  
     }
     
     public void MoveAction(string newPath)
@@ -18,7 +18,16 @@ public class Move
         
         foreach (string file in filteredFiles)
         {
-            File.Move(file, newPath);
+            string fileName = Path.GetFileName(file);
+            string destination =  Path.Combine(newPath, fileName);
+
+            if (File.Exists(destination))
+            {
+                Console.WriteLine($"Skipping file {fileName} because it already exists");
+                continue;
+            }
+            
+            File.Move(file, destination);
         }
     }
 }
