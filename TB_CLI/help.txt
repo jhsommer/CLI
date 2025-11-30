@@ -7,7 +7,7 @@ Commands:
 
 help            Outputs this helper text
 path <path>		Searches the path leading to a valid directory, in which you want to work
-scan			Scans the directory you are currently in
+scan			Scans the directory you used for the path command
 filter <weeks>	Filters the files in the directory
 showList		Shows the list of filtered Files
 move <path>		Moves all the files in the list to a new directory

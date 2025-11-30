@@ -5,11 +5,9 @@ public class Filter
     
     private DateTime now = DateTime.Now;
     private TimeSpan age;
-    private int weeks = 15;
-    
     private List<string> filteredFiles = new ();
     
-    public void FilterService()
+    public void FilterService(string [] files, int weeks)
     {
         DateTime fileDate = DateTime.UnixEpoch;
         FileAttributes attributes;
@@ -28,6 +26,8 @@ public class Filter
             }
         }
 
+        File.WriteAllLines("lists.txt",  filteredFiles);
+        
 #if DEBUG
         Console.WriteLine("Filtered Files");
         foreach (string file in filteredFiles)
