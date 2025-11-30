@@ -15,6 +15,12 @@ public class Move
     public void MoveAction(string newPath)
     {
         List<string> filteredFiles = Load("lists.txt");
+
+        if (filteredFiles.Count == 0)
+        {
+            Console.WriteLine("Please first use the path command.");
+            return;
+        }
         
         foreach (string file in filteredFiles)
         {
@@ -28,6 +34,8 @@ public class Move
             }
             
             File.Move(file, destination);
+            
         }
+        Console.WriteLine($"Moving {filteredFiles.Count} to {newPath}");
     }
 }
