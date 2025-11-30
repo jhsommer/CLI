@@ -2,16 +2,38 @@ namespace TB_CLI.Actions;
 
 public class Filter
 {
+    private List<string> Load(string content)
+    {
+        Console.WriteLine("Loading " + content);
+        
+        if (!File.Exists(content))
+        {
+            return new List<string>();
+        }
+        
+        return File.ReadAllLines(content).ToList();  
+    }
+    
     
     private DateTime now = DateTime.Now;
     private TimeSpan age;
     private List<string> filteredFiles = new ();
     
-    public void FilterService(string [] files, int weeks)
+    public void FilterService( int weeks)
     {
+        List<string> unfilteredFiles = Load("unfilteredFiles.txt");
+        
+        
+        Console.WriteLine($"Filtering {unfilteredFiles.Count} files...");
+
+        if (unfilteredFiles.Count == 0)
+        {
+            Console.WriteLine("No files, please use before the filter command the scan command.");
+        }
+        
         DateTime fileDate = DateTime.UnixEpoch;
         FileAttributes attributes;
-        foreach (string file in files)
+        foreach (string file in unfilteredFiles)
         {
             fileDate = File.GetLastWriteTime(file);
             attributes = File.GetAttributes(file);
@@ -27,14 +49,7 @@ public class Filter
         }
 
         File.WriteAllLines("lists.txt",  filteredFiles);
-        
-#if DEBUG
-        Console.WriteLine("Filtered Files");
-        foreach (string file in filteredFiles)
-        {
-            Console.WriteLine(file);
-        }
-#endif
+        Console.WriteLine($"Saved {filteredFiles.Count} filtered files");
         
     }
 }
