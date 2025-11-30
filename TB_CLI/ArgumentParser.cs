@@ -96,6 +96,7 @@ public class ArgumentParser
                     {
                         if (GetFollowingNumber(expectedArgument, args, i) == -1)
                         {
+                            Console.WriteLine("Please enter a valid number to filter by in weeks.");
                             return;
                         }
                         
@@ -150,11 +151,9 @@ public class ArgumentParser
 
         if (int.TryParse(followingValue, out int number) && number <= 0)
         {
-            Console.WriteLine("Please enter a valid number to filter by in weeks.");
             return -1;
         }
 
         return number;
-        
     }
 }
