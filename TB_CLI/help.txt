@@ -1,15 +1,15 @@
 
 
 Bax -  Dierectory Manager
-Usage with dotnet: dotnet run -- command expression
+Usage with dotnet: dotnet run -- command
 
 Commands:
 
-help            Outputs this helper text
-path path		Searches the path leading to a valid directory, in which you want to work
-scan			Scans the directory you used for the path command
-filter weeks	Filters the files in the directory
-showList		Shows the list of filtered Files
-move path   	Moves all the files in the list to a new directory
-delete			Deletes all files in the filtered list
+[help | h]                                  Outputs this helper text
+[path <path> | p <path>] 		    Searches the path leading to a valid directory, in which you want to start working
+[scan | s]		                    Scans the directory you used for the path command
+[filter <integer> | f <integer>]	    Filters the files in the directory in weeks
+[showList | sl]		                    Shows the list of filtered Files
+[move path | m <path>]   	            Moves all the files in the list to a new directory
+[delete | d]			            Deletes all files in the filtered list
 
